@@ -1,10 +1,9 @@
 此程序用以检测指定b站直播间的状态，并在直播关闭时自动开启直播~建议搭配能断线重连的第三方直播工具使用（例如obs）
 
-该程序参考
+该程序参考了以下项目
 
-https://github.com/GamerNoTitle/BiliLive-Utility
-
-https://github.com/Lee-7723/start-bilibili-live-obs-script
+1. https://github.com/GamerNoTitle/BiliLive-Utility
+2. https://github.com/Lee-7723/start-bilibili-live-obs-script
 
 #### 使用教程：
 

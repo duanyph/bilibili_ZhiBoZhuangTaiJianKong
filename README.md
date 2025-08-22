@@ -1,4 +1,4 @@
-检测指定b站直播间的状态，并在直播关闭时自动开启直播~建议搭配能断线重连的第三方直播工具使用（例如obs）
+此程序用以检测指定b站直播间的状态，并在直播关闭时自动开启直播~建议搭配能断线重连的第三方直播工具使用（例如obs）
 
 该程序参考 https://github.com/GamerNoTitle/BiliLive-Utility，https://github.com/Lee-7723/start-bilibili-live-obs-script
 
@@ -16,9 +16,9 @@ pip install requests
 
 ##### 2，下载程序
 
-若运行.exe文件请下载压缩包并解压，[下载连接]()
+若运行.exe文件请下载压缩包并解压，[下载链接](https://github.com/duanyph/bilibili_ZhiBoZhuangTaiJianKong/releases/download/v1.0/bilibili_ZhiBoZhuangTaiJianKong_win_x86_x64_v1.0.zip)
 
-若运行.py程序请下载项目并解压，也可以自行安装git环境，并在命令行运行下载命令
+若运行.py程序请[下载项目]()并解压，也可以自行安装git环境，并在命令行运行下载命令
 
 ```
 git clone https://github.com/duanyph/bilibili_ZhiBoZhuangTaiJianKong.git
@@ -29,7 +29,7 @@ git clone https://github.com/duanyph/bilibili_ZhiBoZhuangTaiJianKong.git
 打开项目文件夹，使用文本编辑器打开目录下的 config.json 文件，其字段如下:
 
 ```
-    {
+{
     "room_id": "",
     "area_id": 0,
     "cookie": "",
@@ -41,21 +41,15 @@ git clone https://github.com/duanyph/bilibili_ZhiBoZhuangTaiJianKong.git
 
 **字段说明：**
 
-```
 room id: 你的直播间房间号
-    area id: 直播分区ID，详见链接 https://api.live.bilibili.com/room/v1/Area/getList?show_pinyin=1，其中"id"字段为直播间分区id，"name"字段为直播分区名
-    cookie: 网页cookie，浏览器访问B站直播间页面（若未登录则登录一下），F12打开开发者工具，切换到“网络”栏，选择与直播间地址栏链接相同的请求（若没有则在开启开发者工具的情况下刷新一下页面），复制“请求标头”中的cookie字段粘贴到文本框，确认一下cookie中包含SESSDATA和bili_jct，如图所示
-```
-
+area id: 直播分区ID，详见链接 https://api.live.bilibili.com/room/v1/Area/getList?show_pinyin=1，其中"id"字段为直播间分区id，"name"字段为直播分区名
+cookie: 网页cookie，浏览器访问B站直播间页面（若未登录则登录一下），F12打开开发者工具，切换到“网络”栏，选择与直播间地址栏链接相同的请求（若没有则在开启开发者工具的情况下刷新一下页面），复制“请求标头”中的cookie字段粘贴到文本框，确认一下cookie中包含SESSDATA和bili_jct，如图所示
 
 ![地址栏](./1.png)  ![cookie](./2.png)
 
-```
 check_interval: 检测直播间直播状态的时间间隔，单位为秒，默认为30秒
-    retry_interval: 开启直播失败情况下重试的时间间隔,单位为秒，默认为10秒
-    max_retries: 最大重试次数，默认10次。此值不易设置过大，否则一直尝试开启但并未实际直播推流的情况下可能会增加短期内直播封禁的风险
-```
-
+retry_interval: 开启直播失败情况下重试的时间间隔,单位为秒，默认为10秒
+max_retries: 最大重试次数，默认10次。此值不易设置过大，否则一直尝试开启但并未实际直播推流的情况下可能会增加短期内直播封禁的风险
 
 ##### 4，运行
 

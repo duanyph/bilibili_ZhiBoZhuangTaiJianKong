@@ -1,8 +1,0 @@
-{
-    "room_id": "",
-    "area_id": 0,
-    "cookie": "",
-    "check_interval": 30,
-    "retry_interval": 10,
-    "max_retries": 10
-}

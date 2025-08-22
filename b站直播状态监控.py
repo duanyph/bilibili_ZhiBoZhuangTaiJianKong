@@ -16,7 +16,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 class BilibiliLiveMonitor:
-    def __init__(self, room_id: str, area_id: int, cookie: str, check_interval: int = 30, retry_interval: int = 10, retry_duration: int = 60):
+    def __init__(self, room_id: str, area_id: int, cookie: str, check_interval: int = 30, retry_interval: int = 10, max_retries: int = 5):
         """
         初始化B站直播监控器
         
@@ -25,14 +25,14 @@ class BilibiliLiveMonitor:
         :param cookie: 登录Cookie
         :param check_interval: 检查间隔(秒)
         :param retry_interval: 重试间隔(秒)
-        :param retry_duration: 最大重试时长(秒)
+        :param max_retries: 最大重试次数
         """
         self.room_id = room_id
         self.area_id = area_id
         self.cookie = cookie
         self.check_interval = check_interval
         self.retry_interval = retry_interval
-        self.retry_duration = retry_duration
+        self.max_retries = max_retries
         self.csrf_token = self._extract_csrf_token()
         self.is_running = False
         
@@ -119,18 +119,18 @@ class BilibiliLiveMonitor:
         """检查并在需要时重启直播"""
         if not self.is_live_open():
             logger.warning("检测到直播未开启，正在尝试重启...")
-            start_time = time.time()
-
-            while time.time() - start_time < self.retry_duration:
-                logger.info("尝试重启直播...")
+            
+            for attempt in range(self.max_retries):
+                logger.info(f"尝试重启直播... (尝试 {attempt + 1}/{self.max_retries})")
                 result = self.start_live()
                 if result:
                     logger.info("直播重启成功")
                     return True
-                logger.warning(f"重启直播失败，{self.retry_interval}秒后重试...")
-                time.sleep(self.retry_interval)
+                if attempt < self.max_retries - 1:  # 如果不是最后一次尝试
+                    logger.warning(f"重启直播失败，{self.retry_interval}秒后重试...")
+                    time.sleep(self.retry_interval)
 
-            logger.error(f"在 {self.retry_duration} 秒内多次尝试后仍未能重启直播，程序退出")
+            logger.error(f"在 {self.max_retries} 次尝试后仍未能重启直播，程序退出")
             self.stop()  # 停止监控
             return False
         else:
@@ -139,7 +139,6 @@ class BilibiliLiveMonitor:
     
     def run(self):
         """运行监控循环"""
-        # self.start_live()
         self.is_running = True
         logger.info("直播监控已启动")
         try:
@@ -180,13 +179,13 @@ def main():
         cookie = config.get("cookie", "")
         check_interval = config.get("check_interval", 30)
         retry_interval = config.get("retry_interval", 10)
-        retry_duration = config.get("retry_duration", 60)
+        max_retries = config.get("max_retries", 5)  # 修改为最大重试次数
         
         if not room_id or not cookie:
             raise ValueError("请确保配置文件中包含room_id和cookie")
         
         # 创建监控器实例
-        monitor = BilibiliLiveMonitor(room_id, area_id, cookie, check_interval, retry_interval, retry_duration)
+        monitor = BilibiliLiveMonitor(room_id, area_id, cookie, check_interval, retry_interval, max_retries)
         
         # 启动监控
         monitor.run()
@@ -194,7 +193,7 @@ def main():
     except Exception as e:
         logger.error(f"程序启动失败: {e}")
         logger.info("请确保已创建config.json文件，并包含以下内容:")
-        logger.info('{"room_id": "你的直播间ID", "area_id": 分区ID, "cookie": "你的Cookie", "check_interval": 检测直播状态时间间隔, "retry_interval": 失败重启时间间隔, "retry_duration": 最大重启时间}')
+        logger.info('{"room_id": "你的直播间ID", "area_id": 分区ID, "cookie": "你的Cookie", "check_interval": 检测直播状态时间间隔, "retry_interval": 失败重启时间间隔, "max_retries": 最大重试次数}')
 
 
 if __name__ == "__main__":

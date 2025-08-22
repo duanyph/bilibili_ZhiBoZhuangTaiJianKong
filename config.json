@@ -4,5 +4,5 @@
     "cookie": "",
     "check_interval": 30,
     "retry_interval": 10,
-    "retry_duration": 60
+    "max_retries": 10
 }

@@ -1,6 +1,80 @@
-# b-
+此程序用以检测指定b站直播间的状态，并在直播关闭时自动开启直播~建议搭配能断线重连的第三方直播工具使用（例如obs）
 
+该程序参考 https://github.com/GamerNoTitle/BiliLive-Utility，https://github.com/Lee-7723/start-bilibili-live-obs-script
 
-检测直播状态，并在直播关闭时自动开启直播~需搭配能重连的第三方直播工具使用
-使用
-使用
+#### 使用教程：
+
+##### 1，依赖库安装
+
+若运行封装好的.exe文件请忽略此步骤
+
+该程序需要在python3.8及以上的环境运行，且依赖 requests 库运行，请自行安装python环境，并打开命令行运行命令安装 requests 库
+
+```
+pip install requests
+```
+
+##### 2，下载程序
+
+若运行.exe文件请下载压缩包并解压，[下载链接](https://github.com/duanyph/bilibili_ZhiBoZhuangTaiJianKong/releases/download/v1.0/bilibili_ZhiBoZhuangTaiJianKong_win_x86_x64_v1.0.zip)
+
+若运行.py程序请[下载项目]()并解压，也可以自行安装git环境，并在命令行运行下载命令
+
+```
+git clone https://github.com/duanyph/bilibili_ZhiBoZhuangTaiJianKong.git
+```
+
+##### 3，修改配置 config.json 文件
+
+打开项目文件夹，使用文本编辑器打开目录下的 config.json 文件，其字段如下:
+
+```
+{
+    "room_id": "",
+    "area_id": 0,
+    "cookie": "",
+    "check_interval": 30,
+    "retry_interval": 10,
+    "max_retries": 10
+    }
+```
+
+**字段说明：**
+
+* room id: 你的直播间房间号
+* area id: 直播分区ID，详见链接 https://api.live.bilibili.com/room/v1/Area/getList?show_pinyin=1，其中"id"字段为直播间分区id，"name"字段为直播分区名
+* cookie: 网页cookie，浏览器访问B站直播间页面（若未登录则登录一下），F12打开开发者工具，切换到“网络”栏，选择与直播间地址栏链接相同的请求（若没有则在开启开发者工具的情况下刷新一下页面），复制“请求标头”中的cookie字段粘贴到文本框，确认一下cookie中包含SESSDATA和bili_jct，如图所示
+
+![地址栏](./1.png)  ![cookie](./2.png)
+
+* check_interval: 检测直播间直播状态的时间间隔，单位为秒，默认为30秒
+* retry_interval: 开启直播失败情况下重试的时间间隔,单位为秒，默认为10秒
+* max_retries: 最大重试次数，默认10次。此值不易设置过大，否则一直尝试开启但并未实际直播推流的情况下可能会增加短期内直播封禁的风险
+
+##### 4，运行
+
+解压并打开项目目录，运行.exe文件即可
+
+若运行.py程序请在项目目录里打开命令行运行
+
+```
+python b站直播状态监控.py
+```
+
+运行后会在目录下留下日志文件，可以打开了解程序运行的历史状态
+
+#### obs重连设置
+
+额外讲一下直播软件obs的断线重连设置
+
+此程序仅仅作为自动开启直播推流的辅助工具，并不具备直播功能，所以需要搭配第三方直播工具使用
+
+此程序的工作流程是，当检测到指定直播间直播未开启，则尝试开启推流地址，若开启尝试多次后任未成功，则关闭程序，若成功则继续监控
+
+当使用第三方直播工具直播过程中断开，该程序会继续打开推流地址，第三方直播工具则依赖自身的断线重连机制，继续连接推流地址进行推流直播
+
+这里以第三方直播工具obs为例，配置重试设置
+
+点开obs 设置，切换到 高级 选项卡，下拉找到 自动重连 项，勾选 启用，然后设置间隔时间和重试次数。通常情况下，obs自动重连是默认启用的，可以根据自己需要进行设置
+
+![obs设置](./3.png)

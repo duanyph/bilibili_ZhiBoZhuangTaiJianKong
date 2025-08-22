@@ -1,7 +1,7 @@
 {
-    "room_id": "",
-    "area_id": 0,
-    "cookie": "",
+    "room_id": "4248913",
+    "area_id": 372,
+    "cookie": "GIFT_BLOCK_COOKIE=GIFT_BLOCK_COOKIE; LIVE_ROOM_ADMIN_POP_TIP=1; testcookie=1; buvid4=46465270-C932-543B-C218-155430C4D4A153198-023041911-6SH4jvJraPJAqNLlYnBNug%3D%3D; buvid_fp_plain=undefined; home_feed_column=5; CURRENT_BLACKGAP=0; enable_web_push=DISABLE; is-2022-channel=1; DedeUserID=105116728; DedeUserID__ckMd5=df016b7e4a2f781c; b_nut=1724487063; buvid3=66E26F0A-FB98-1B27-1672-67C87E41EF5C63657infoc; LIVE_BUVID=AUTO8617244870750114; rpdid=0zbfAHRf1X|JNwr02bB|r1u|3w1SHLT5; dy_spec_agreed=1; SESSDATA=b2fecce7%2C1755959448%2Ceaba2%2A21CjBBvOAMquAem5Gs1G9mYVItTH4wCliR3Khf66rhrTmfuh7GEpxYM8Q5jBSmmRioL1ISVmY0dFlJamlLTm4wQ1BUOHN6RjNFZmJXMm1RckxRSnVmS2QyYVJIYUl3OUdYeUNrc05hck9ZdERpR1NJWnYyYzVVeUNHNWNyQ09ObkE1djlUOUJ6UXdRIIEC; bili_jct=6cb820363223bcd6228d8d3b45075020; enable_feed_channel=ENABLE; fingerprint=41f2e6dc20062e3970d41205be8caaf0; GIFT_BLOCK_COOKIE=GIFT_BLOCK_COOKIE; buvid_fp=cf3ce00940c3c600afe6bf977b20d7a3; Hm_lvt_8a6e55dbd2870f0f5bc9194cddf32a02=1751165731,1751298923,1751369272,1751440314; browser_resolution=1912-940; header_theme_version=OPEN; theme-tip-show=SHOWED; theme-avatar-tip-show=SHOWED; theme-switch-show=SHOWED; theme_style=light; _uuid=898F3673-1ECC-4F6B-10743-68105108CE103C368175infoc; hit-dyn-v2=1; CURRENT_QUALITY=80; bili_ticket=eyJhbGciOiJIUzI1NiIsImtpZCI6InMwMyIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3NTU5MjE5ODIsImlhdCI6MTc1NTY2MjcyMiwicGx0IjotMX0.-2ebJTXdEoPbuqaCzCghLxAfV5EGl_WeHzDDTndP_Fw; bili_ticket_expires=1755921922; CURRENT_FNVAL=4048; timeMachine=0; bp_t_offset_105116728=1103796308625326080; sid=8id3fqkr; PVID=14; b_lsid=B81D841010_198D0D530C1",
     "check_interval": 30,
     "retry_interval": 10,
     "max_retries": 10

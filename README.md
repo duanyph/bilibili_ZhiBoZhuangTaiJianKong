@@ -19,9 +19,9 @@ pip install requests
 
 ##### 2，下载程序
 
-若运行.exe文件请下载压缩包并解压，[下载链接](https://github.com/duanyph/bilibili_ZhiBoZhuangTaiJianKong/releases/download/v1.0/bilibili_ZhiBoZhuangTaiJianKong_win_x86_x64_v1.0.zip)
+若运行.exe文件请[下载压缩包](https://github.com/duanyph/bilibili_ZhiBoZhuangTaiJianKong/releases/download/v1.0/bilibili_ZhiBoZhuangTaiJianKong_win_x86_x64_v1.0.zip)并解压
 
-若运行.py程序请[下载项目](https://github.com/duanyph/bilibili_ZhiBoZhuangTaiJianKong/archive/refs/tags/v1.0.zip)并解压，也可以自行安装git环境，并在命令行运行下载命令
+若运行.py程序请[下载代码包](https://github.com/duanyph/bilibili_ZhiBoZhuangTaiJianKong/archive/refs/tags/v1.0.zip)并解压，也可以自行安装git环境，并在命令行运行下载命令
 
 ```
 git clone https://github.com/duanyph/bilibili_ZhiBoZhuangTaiJianKong.git

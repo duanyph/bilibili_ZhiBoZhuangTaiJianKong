@@ -46,7 +46,7 @@ git clone https://github.com/duanyph/bilibili_ZhiBoZhuangTaiJianKong.git
 
 * room id: 你的直播间房间号
 * area id: 直播分区ID，详见链接 [https://api.live.bilibili.com/room/v1/Area/getList?show_pinyin=1](https://api.live.bilibili.com/room/v1/Area/getList?show_pinyin=1)，其中"id"字段为直播间分区id，"name"字段为直播分区名
-* cookie: 网页cookie，浏览器访问B站直播间页面（若未登录则登录一下），F12打开开发者工具，切换到 网络 栏，选择与直播间地址栏链接相同的请求（若没有则在开启开发者工具的情况下刷新一下页面），切换至 标头 页，下拉找到 请求标头 项，找到其中的cookie字段复制粘贴到配置文件的cookie字段，确认一下cookie中包含SESSDATA和bili_jct，注意：开发者工具页面依版本浏览器品牌等原因有差异，这里Microsoft Edge浏览器作为演示，以如图所示
+* cookie: 网页cookie，浏览器访问B站直播间页面（若未登录则登录一下），F12打开开发者工具（注意：开发者工具页面依浏览器品牌版本等原因有差异，这里以Microsoft Edge浏览器作为演示），切换到 网络 栏，选择与直播间地址栏链接相同的请求（若没有则在开启开发者工具的情况下刷新一下页面），切换至 标头 页，下拉找到 请求标头 项，找到其中的cookie字段复制粘贴到配置文件的cookie字段，确认一下cookie中包含SESSDATA和bili_jct，以如图所示
 
 ![地址栏](./1.png)  ![cookie](./2.png)
 

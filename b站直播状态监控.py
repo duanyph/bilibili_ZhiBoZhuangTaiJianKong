@@ -2,7 +2,18 @@ import requests
 import time
 import json
 import logging
+import os
+import sys
 from typing import Optional, Dict, Any
+
+if sys.platform == "win32":
+    # Windows
+    os.system(f"title b站直播状态监控.exe -by 小段_d https://space.bilibili.com/105116728 使用此程序时请声明来源")
+elif sys.platform in ["linux", "darwin"]:
+    # Linux 和 macOS
+    sys.stdout.write(f"\033]0;b站直播状态监控.exe -by 小段_d https://space.bilibili.com/105116728 使用此程序时请声明来源\007")
+    sys.stdout.flush()
+
 
 # 配置日志
 logging.basicConfig(

@@ -34,7 +34,7 @@ git clone https://github.com/duanyph/bilibili_ZhiBoZhuangTaiJianKong.git
 ```
 {
     "room_id": "",
-    "area_id": 0,
+    "area_id": "",
     "cookie": "",
     "check_interval": 30,
     "retry_interval": 10,

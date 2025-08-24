@@ -29,9 +29,9 @@ pip install requests
 git clone https://github.com/duanyph/bilibili_ZhiBoZhuangTaiJianKong.git
 ```
 
-##### 3，修改配置 config.json 文件
+##### 3，修改配置config.json文件
 
-打开项目文件夹，使用文本编辑器打开目录下的 config.json 文件，其字段如下:
+打开项目文件夹，使用文本编辑器打开目录下的config.json文件，其字段如下:
 
 ```
 {
@@ -60,7 +60,7 @@ git clone https://github.com/duanyph/bilibili_ZhiBoZhuangTaiJianKong.git
 
 ##### 4，运行
 
-解压并打开项目目录，运行.exe文件即可
+解压打开项目目录并配置好config.json配置文件后，运行.exe文件即可
 
 若运行.py程序请在项目目录里打开命令行运行
 

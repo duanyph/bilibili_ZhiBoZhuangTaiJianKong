@@ -66,7 +66,7 @@ git clone https://github.com/duanyph/bilibili_ZhiBoZhuangTaiJianKong.git
 python b站直播状态监控.py
 ```
 
-运行后会在目录下留下日志文件，可以打开了解程序运行的历史状态
+程序运行时会在目录下生成日志文件，可以打开此文件了解程序运行时的历史状态
 
 #### obs重连设置
 
